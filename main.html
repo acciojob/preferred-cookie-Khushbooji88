@@ -24,6 +24,17 @@
       <input type="submit" value="Save" />
     </form>
 
-    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="./script.js">
+		//your JS code here. If required.
+document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  // rest of your code goes here
+	let fontSize = document.querySelector('#fontsize').value;
+let fontColor = document.querySelector('#fontcolor').value;
+
+	document.cookie = `fontSize=${fontSize}; path=/`;
+document.cookie = `fontColor=${fontColor}; path=/`;
+});
+	</script>
   </body>
 </html>
