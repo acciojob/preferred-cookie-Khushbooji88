@@ -1,55 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preferred Cookie</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <form>
-      <label for="fontsize">Font Size:</label>
-      <input type="number" id="fontsize" name="fontsize" min="8" max="72" value="16" />
-      <br />
-      <label for="fontcolor">Font Color:</label>
-      <input type="color" id="fontcolor" name="fontcolor" value="#000000" />
-      <br />
-      <input type="submit" value="Save" />
+</head>
+<body>
+    <h1>Customize Your Preferences</h1>
+    <form id="preferencesForm">
+        <label for="fontsize">Font Size:</label>
+        <input
+            type="number"
+            id="fontsize"
+            name="fontsize"
+            min="8"
+            max="72"
+            value="16"
+        />
+        <br />
+        <label for="fontcolor">Font Color:</label>
+        <input type="color" id="fontcolor" name="fontcolor" value="#000000" />
+        <br />
+        <input type="submit" value="Save" />
     </form>
-    <script type="text/javascript" src="./script.js">
-		function getCookie(name) {
-  let cookieArr = document.cookie.split(";");
-  
-  for(let i = 0; i < cookieArr.length; i++) {
-    let cookiePair = cookieArr[i].split("=");
-    
-    if(name == cookiePair[0].trim()) {
-      return decodeURIComponent(cookiePair[1]);
-    }
-  }
-  
-  return null;
-}
 
-document.querySelector('form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  let fontSize = document.querySelector('#fontsize').value;
-  let fontColor = document.querySelector('#fontcolor').value;
-
-  document.cookie = `fontSize=${fontSize}; path=/`;
-  document.cookie = `fontColor=${fontColor}; path=/`;
-});
-
-window.onload = function() {
-  let fontSize = getCookie('fontSize');
-  let fontColor = getCookie('fontColor');
-
-  if(fontSize) {
-    document.body.style.fontSize = fontSize + 'px';
-  }
-
-  if(fontColor) {
-    document.body.style.color = fontColor;
-  }
-}
-	</script>
-  </body>
+    <script type="text/javascript" src="script.js"></script>
+</body>
 </html>
